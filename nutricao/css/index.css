@@ -157,4 +157,17 @@ button[disabled=disabled], button:disabled {
 
 .invisivel {
 	display: none;
+	opacity: 0;
+}
+
+#erro-ajax {
+	color: red;
+	font-weight: bold;
+	opacity: 1;
+}
+
+#carregado-ajax {
+	color:lightseagreen;
+	font-weight: bold;
+	opacity: 1;
 }

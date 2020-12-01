@@ -1,1 +1,0 @@
-# gurgelgermano.github.io
