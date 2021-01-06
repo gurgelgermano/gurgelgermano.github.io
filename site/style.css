@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 100px;
+}
+
+.banner {
+    position: relative;
+    min-height: 100vh;
+    background: url(./images/banner.jpg);
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner h2 {
+    font-size: 3em;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.5em;
+}
+
+.banner h2 span {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.banner h3 {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn {
+    position: relative;
+    background: greenyellow;
+    display: inline-block;
+    color: #000;
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header[class*="sticky"] {
+    background: white !important;
+    padding: 20px 100px;
+    color: #111;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.sticky .logo {
+    color: #111;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    position: relative;
+    list-style: none;
+}
+
+header ul li a {
+    position:relative;
+    display: inline-block;
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sticky ul li a{
+    color: #111;
+}
+
+.heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.heading h2 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentBx {
+    padding-right: 30px;
+}
+
+.contentBx h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.w50 {
+    min-width: 50%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.servicos {
+    background: #111;
+}
+
+.heading.white {
+    color: #fff;
+}
+
+.servicos .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.servicos .content .servicosBx {
+    padding:  40px 20px;
+    background: #222;
+    color: #fff;
+    max-width: 340px;
+    margin: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.servicos .content .servicosBx:hover {
+    background: greenyellow;
+    color: #111;
+}
+
+.servicos .content .servicosBx img {
+    max-width: 80px;
+    filter:invert(1);
+    transition: 0.5s;
+}
+
+.servicos .content .servicosBx:hover img {
+    filter:invert(0)
+}
+
+.servicos .content .servicosBx h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.proj .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.proj .content .projBx {
+    width: 50%;
+    padding: 20px;
+}
+
+.proj .content .projBx img {
+    max-width: 100%;
+}
+
+.depoimentos {
+    background: #f7f7f7;
+}
+
+.depoimentos .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.depoimentos .content .depoimentosBx {
+    max-width: calc(50% - 40px);
+    padding: 60px 40px;
+    margin: 20px;
+    background: greenyellow;
+}
+
+.depoimentos .content .depoimentosBx p {
+    color: #111;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.depoimentos .content .depoimentosBx h3 {
+    margin-top: 40px;
+    text-align: right;
+    color: #222;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1em;
+}
+
+.depoimentos .content .depoimentosBx h3 span {
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+.contato {
+    background: #111;
+}
+
+.formBx {
+    min-width: 60%;
+}
+
+.formBx form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formBx form h3, .contatoInfo h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.formBx form input, .formBx form textarea {
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    background: #222;
+    color: #fff;
+    resize: none;
+}
+
+.formBx form textarea {
+    min-height: 200px;
+}
+
+.formBx form input::placeholder, .formBx form textarea::placeholder {
+    color: #999;
+}
+
+.formBx form input[type="submit"] {
+    max-width: 100px;
+    background: greenyellow;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #111;
+}
+
+.contatoInfo {
+    min-width: 40%;
+}
+
+.contatoInfoBx {
+    position: relative;
+}
+
+.contatoInfoBx .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.contatoInfoBx .box .icon {
+    min-width: 40px;
+    padding-top: 4px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 24px;
+}
+
+.contatoInfoBx .box .text {
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.contatoInfoBx .box .text h3 {
+    font-weight: 500;
+    color: greenyellow;
+    margin-bottom: 0;
+}
+
+.copyright {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 990px) {
+    header,
+    .sticky {
+        padding: 20px;
+        z-index: 1000;
+    }
+    .menu {
+        position: fixed;
+        top: 75px;
+        left: -100%;
+        display: block;
+        padding: 100px 50px;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        transition: 0.5s;
+        z-index: 999;
+        border-top: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .menu.active {
+        left: 0;
+    }
+    
+    header ul li a {
+        color: #111;
+        font-size: 24px;
+        margin: 10px;
+    }
+    .toggle {
+        width: 40px;
+        height: 40px;
+        background: url(/images/menu.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        cursor: pointer;
+    }
+    .toggle.active {
+        background: url(/images/close.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        cursor: pointer;
+    }
+
+    header[class*="sticky"] .toggle {
+        filter: invert(1);
+    }
+
+    section {
+        padding: 100px 50px;
+    }
+    .banner {
+        padding: 150px 50px 100px;
+    }
+
+    .banner h2 {
+        font-size: 1.5em;
+    }
+
+    .banner h3 {
+        font-size: 1em;
+    }
+
+    .btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .heading h2 {
+        font-size: 24px;
+    }
+    
+    .content {
+        flex-direction: column;
+    }
+
+    .w50 {
+        margin-bottom: 20px;
+    }
+
+    .servicos .content .servicosBx {
+        margin: 10px;
+    }
+
+    .proj .content .projBx {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .depoimentos .content .depoimentosBx {
+        max-width: calc(100% - 20px);
+        padding: 40px 20px;
+        margin: 10px;
+        background: greenyellow;
+    }
+
+    .depoimentos .content .depoimentosBx h3 {
+        margin-top: 20px;
+    }
+
+    .contatoInfo {
+        margin: 20px 0;
+    }
+}
