@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Germano Gurgel</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Germano Gurgel</a>
+        <div class="toggle" onclick="toggleMenu();"></div>
+        <ul class="menu">
+            <li><a href="#home" onclick="toggleMenu();">Início</a></li>
+            <li><a href="#sobre" onclick="toggleMenu();">Sobre</a></li>
+            <li><a href="#servicos" onclick="toggleMenu();">Projetos</a></li>
+            <li><a href="#contato" onclick="toggleMenu();">Contato</a></li>
+        </ul>
+    </header>
+    <section class="sobre" id="sobre">
+        <div class="heading">
+            <h2>Sobre Mim</h2>
+        </div>
+        <div class="content">
+            <div class="contentBx w50">
+                <h3>Depois eu falo que eu eu faço ou sou!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nihil temporibus nemo. Cum minima corrupti pariatur similique, beatae dolorum nam est veritatis ipsa, debitis maiores, quam unde recusandae sequi molestiae. </p>
+            </div>
+            <div class="w50">
+                <img src="./images/banner.jpg" class="img">
+            </div>
+        </div>
+    </section>
+
+    <section class="servicos" id="servicos">
+        <div class="heading white">
+            <h2>Projetos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <div class="servicosBx">
+                <a href="/games/index.html" target="_blank"><img src="./images/icon1.png"></a>
+                <h2>Games</h2>
+                <br>
+                <p>Projetos de games classicos desenvolvidos atraves da biblioteca P5. FreeWay e Pong.</p>
+            </div>
+            <div class="servicosBx">
+                <a href="/produtoParalax/index.html" target="_blank"><img src="./images/icon2.png"></a>
+                <h2>Itens Parallax</h2>
+                <br>
+                <p>Exemplo de efeito parallax aplicado em produtos de loja digital</p>
+            </div>
+            <div class="servicosBx">
+                <a href="/site/index.html" target="_blank"><img src="./images/icon3.png"></a>
+                <h2>Portifólio Responsivo</h2>
+                <br>
+                <p>Projeto single page de Portifólio pessoal responsivo</p>
+            </div>
+            <div class="servicosBx">
+                <a href="/megaSenha/index.html" target="_blank"><img src="./images/icon4.png"></a>
+                <h2>Mega Senha - o jogo</h2>
+                <br>
+                <p>Game baseado no Mega Senha, O game executa por meio de uma overlay para streams utilizando OBS e similares.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contato" id="contato">
+        <div class="heading white">
+            <h2>Contato</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <div class="contatoInfo">
+                <h3>Informação de Contato</h3>
+                <div class="contatoInfoBx">
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Endereço</h3>
+                            <p>Brasil - Brasilia</p>
+                        </div>  
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Whatsapp</h3>
+                            <p>111 1111-111</p>
+                        </div>  
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-envelope-o"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>meuemail@honoriogurgel.com.br</p>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="formBx">
+                <form>
+                    <h3>Me envie uma mensagem</h3>
+                    <input type="text" name="" placeholder="Seu Nome">
+                    <input type="email" name="" placeholder="seu@email.com.br">
+                    <textarea name="" placeholder="Escreva sua mensagem" id="" cols="30" rows="5"></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>Copyright © 2020 Mercúrio Gurgel. Todos os Direitos Reservados.</p>
+    </div>
+    <script type="text/javascript">
+        window.addEventListener('scroll', function(){
+            var header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        })
+
+        function toggleMenu(){
+            var menuToggle = document.querySelector('.toggle');
+            var menu = document.querySelector('.menu');
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
