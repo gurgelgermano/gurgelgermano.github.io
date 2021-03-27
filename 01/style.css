@@ -14,11 +14,14 @@ body {
   color: aliceblue;
 }
 
+.conteudo {
+  padding: 10vh;
+}
+
 .principal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15%;
 }
 
 .avatar {
