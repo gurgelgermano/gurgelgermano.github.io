@@ -1,13 +1,14 @@
-const pix = document.querySelector(".chave-pix")
+// const pix = document.getElementById("pix")
+// const texto = document.getElementById("chave-pix").select()
 
-function copiarPix(){
-  pix.innerHTML = "51b81827-4ae8-4806-9853-d85891cda413"
-}
+// function copiarPix(){
+//   texto.execCommand('copy');
+// }
 
-pix.onclick = (evento) => {
-  evento.preventDefault()
-  copiarPix();
-  setTimeout(function(){ 
-    pix.innerHTML = "Chave Pix"; 
-  }, 5000);
-}
+// pix.onclick = (evento) => {
+//   evento.preventDefault()
+//   copiarPix()
+//   setTimeout(function(){ 
+//     pix.innerHTML = "Copiar Chave Pix"; 
+//   }, 5000);
+// }

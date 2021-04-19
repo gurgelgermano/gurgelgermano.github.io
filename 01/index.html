@@ -29,11 +29,16 @@
       <a class="github" href="https://github.com/gurgelgermano">
         <p>GitHub</p>
       </a>
-      <a class="pix">
-        <p type="text" class="chave-pix" value="51b81827-4ae8-4806-9853-d85891cda413">Chave Pix</p>
-      </a>
+      <input type="text" id="texto" value="51b81827-4ae8-4806-9853-d85891cda413" readonly>
+      <button id="botao"> Copiar Chave-Pix </button>
     </div>
   </section>
+  <script>
+  document.getElementById('botao').addEventListener('click', function () {
+    document.getElementById('texto').select();
+    document.execCommand('copy');
+  });
+  </script>
   <script src="../01/index.js"></script>
 </body>
 </html>

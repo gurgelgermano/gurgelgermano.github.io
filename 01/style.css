@@ -91,10 +91,10 @@ body {
   margin-bottom: 5px;
 }
 
-.pix {
+#texto {
   text-decoration: none;
   color: aliceblue;
-  background: linear-gradient(to left, #35AEA5,#40D4C9);
+  background: linear-gradient(to left, #0a645e,#1ed6ca);
   padding: 5px;
   text-align: center;
   min-width: 200px;
@@ -102,6 +102,10 @@ body {
   margin-bottom: 5px;
 }
 
-.chave {
-  display: none;
+#botao {
+  padding: 5px;
+  border-radius: 10px;
+  background: linear-gradient(to left, #0a645e,#40D4C9);
+  color: aliceblue;
+  font-weight: 500;
 }
