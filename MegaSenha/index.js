@@ -147,7 +147,7 @@ function eventoProximaRodada() {
 }
 
 function bolaVerde() {
-    bolinhas[bolinhaCasas].src = "./midias/BolaVerde.webm";
+    bolinhas[bolinhaCasas].src = "./midias/bolaVerde.webm";
     bolinhaCasas += 1;
 }
 

@@ -57,7 +57,7 @@ const circlesLayer = L.layerGroup().addTo(map);
 
 // Função para calcular o raio baseado na quantidade (escala logarítmica para melhor visualização)
 function getRadius(quantidade) {
-  return Math.sqrt(quantidade) * 30; // Ajuste o multiplicador conforme necessário
+  return Math.sqrt(quantidade) * 55; // Ajuste o multiplicador conforme necessário
 }
 
 // Função para parsear CSV
@@ -87,7 +87,7 @@ function updateMap(data) {
     console.log(`Zona ${item.zona}: coord ${coord}, votos ${item.quantidade}`);
     if (coord) {
       L.circle(coord, {
-        color: 'green',
+        color: 'gold',
         fillColor: 'rgb(16, 173, 45)',
         fillOpacity: 0.5,
         radius: getRadius(item.quantidade)
