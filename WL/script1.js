@@ -54,10 +54,30 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Layer group para os círculos
 const circlesLayer = L.layerGroup().addTo(map);
+const circlesByZona = {};
+const summaryDiv = document.getElementById('summary');
+let selectedZona = null;
 
-// Função para calcular o raio baseado na quantidade (escala logarítmica para melhor visualização)
 function getRadius(quantidade) {
   return Math.sqrt(quantidade) * 55; // Ajuste o multiplicador conforme necessário
+}
+
+function setDefaultCircleStyle(circle) {
+  circle.setStyle({
+    color: 'gold',
+    fillColor: 'rgb(16, 173, 45)',
+    fillOpacity: 0.5,
+    weight: 3
+  });
+}
+
+function setHighlightCircleStyle(circle) {
+  circle.setStyle({
+    color: '#ff0000',
+    fillColor: '#ff6666',
+    fillOpacity: 0.7,
+    weight: 4
+  });
 }
 
 // Função para parsear CSV
@@ -75,32 +95,78 @@ function parseCSV(csvText) {
       }
     }
   }
-  return Object.keys(data).map(zona => ({ zona, quantidade: data[zona] }));
+  return Object.keys(data)
+    .map(zona => ({ zona, quantidade: data[zona] }))
+    .sort((a, b) => b.quantidade - a.quantidade);
 }
 
 // Função para atualizar o mapa com novos dados
+function renderSummary(data, total) {
+  const totalHtml = `<div class="summary-total"><strong>Total de votos:</strong> ${total}</div>`;
+  const itemsHtml = data.map(item =>
+    `<li class="zone-item" data-zona="${item.zona}"><strong>Zona ${item.zona} - ${zonasNomes[item.zona] || 'Desconhecido'}</strong>: ${item.quantidade} votos</li>`
+  ).join('');
+
+  summaryDiv.innerHTML = `<h2>Resumo por Zona</h2>${totalHtml}<ul class="zone-list">${itemsHtml}</ul>`;
+}
+
 function updateMap(data) {
   console.log('Dados para mapa:', data);
   circlesLayer.clearLayers();
+  Object.keys(circlesByZona).forEach(zona => delete circlesByZona[zona]);
+  selectedZona = null;
+
   data.forEach(item => {
     const coord = coordinates[item.zona];
     console.log(`Zona ${item.zona}: coord ${coord}, votos ${item.quantidade}`);
     if (coord) {
-      L.circle(coord, {
+      const circle = L.circle(coord, {
         color: 'gold',
         fillColor: 'rgb(16, 173, 45)',
         fillOpacity: 0.5,
-        radius: getRadius(item.quantidade)
-      }).addTo(circlesLayer).bindPopup(`<b>Zona ${item.zona} - ${zonasNomes[item.zona] || 'Desconhecido'}</b><br>Votos: ${item.quantidade}`);
+        radius: getRadius(item.quantidade),
+        weight: 3
+      }).addTo(circlesLayer)
+        .bindPopup(`<b>Zona ${item.zona} - ${zonasNomes[item.zona] || 'Desconhecido'}</b><br>Votos: ${item.quantidade}`);
+      circlesByZona[item.zona] = circle;
     }
   });
 
-  // Atualizar resumo lateral
-  const summaryDiv = document.getElementById('summary');
-  summaryDiv.innerHTML = '<h2>Resumo por Zona</h2><ul>' +
-    data.map(item => `<li><strong>Zona ${item.zona} - ${zonasNomes[item.zona] || 'Desconhecido'}</strong>: ${item.quantidade} votos</li>`).join('') +
-    '</ul>';
+  const total = data.reduce((sum, item) => sum + item.quantidade, 0);
+  renderSummary(data, total);
 }
+
+function highlightZone(zona) {
+  if (selectedZona && circlesByZona[selectedZona]) {
+    setDefaultCircleStyle(circlesByZona[selectedZona]);
+  }
+
+  selectedZona = zona;
+  const clickedItem = summaryDiv.querySelector('.zone-item.selected');
+  if (clickedItem) clickedItem.classList.remove('selected');
+
+  const circle = circlesByZona[zona];
+  if (!circle) return;
+
+  setHighlightCircleStyle(circle);
+  const targetItem = summaryDiv.querySelector(`.zone-item[data-zona="${zona}"]`);
+  if (targetItem) targetItem.classList.add('selected');
+
+  circle.openPopup();
+  const coord = coordinates[zona];
+  if (coord) {
+    map.setView(coord, 11);
+  }
+}
+
+summaryDiv.addEventListener('click', event => {
+  const item = event.target.closest('.zone-item');
+  if (!item) return;
+  const zona = item.dataset.zona;
+  if (zona) {
+    highlightZone(zona);
+  }
+});
 
 // Função para carregar dados de um CSV
 async function loadData(filename) {
@@ -118,4 +184,6 @@ async function loadData(filename) {
   }
 }
 
-// Carregar dados iniciais (removido, agora só no botão)
+window.addEventListener('DOMContentLoaded', () => {
+  loadData('votacao2022.csv');
+});
