@@ -276,7 +276,7 @@ function updateMap(data) {
 }
 
 function getRadius(quantidade) {
-  return Math.max(quantidade, 1) * 10; // Ajusta radiações para ser visível
+  return Math.max(quantidade, 1) * 11; // Ajusta radiações para ser visível
 }
 
 async function loadData(filename, year) {
